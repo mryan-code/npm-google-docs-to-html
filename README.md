@@ -25,6 +25,5 @@ google.options({
 });
 const docs = google.docs("v1");
 const googleDocResponse = await docs.documents.get("whatever_id");
-
-const googleDocHTMLArray = googleDocToHTML(googleDocResponse);
+const googleDocHTMLArray = await googleDocToHTML(googleDocResponse);
 ```
