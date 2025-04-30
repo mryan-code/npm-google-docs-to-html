@@ -4,7 +4,7 @@
 This package converts a Google Doc to HTML.
 
 ## Note
-I'm sure you're already familiar with the [googleapis](https://github.com/googleapis/google-api-nodejs-client) package, and [path](https://nodejs.org/api/path.html) package. Incase not, I included a basic example of how to use em below.
+I'm sure you're already familiar with the [googleapis](https://github.com/googleapis/google-api-nodejs-client) package, and the [path](https://nodejs.org/api/path.html) package. Incase not, I included a basic example of how to use em below.
 
 ## Installation
 ```bash
