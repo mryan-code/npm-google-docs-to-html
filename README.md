@@ -1,8 +1,11 @@
 # Google Doc to HTML
 
+## Note
+I'm sure you're already familiar with the [googleapis](https://github.com/googleapis/google-api-nodejs-client) package, and [path](https://nodejs.org/api/path.html) package. Incase not, I included how to use em below.
+
 ## Installation
 ```bash
-npm i mryan-code-google-docs-to-html googleapis
+npm i mryan-code-google-docs-to-html googleapis path
 ```
 
 ## Usage
