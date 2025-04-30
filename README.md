@@ -6,7 +6,7 @@ npm i mryan-code-google-docs-to-html googleapis
 ```
 
 ## Usage
-```bash
+```javascript
 import { google } from "googleapis";
 import { googleDocToHTML } from "mryan-code-google-docs-to-html";
 const auth = new google.auth.GoogleAuth({
