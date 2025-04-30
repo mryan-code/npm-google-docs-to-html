@@ -1,0 +1,13 @@
+{
+  "name": "google-docs-to-html",
+  "version": "1.0.0",
+  "description": "This package converts a Google Doc to HTML.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mryan-code/npm-google-docs-to-html.git"
+  },
+  "author": "Matt Ryan",
+  "license": "ISC",
+  "homepage": "https://github.com/mryan-code/npm-google-docs-to-html#readme"
+}
