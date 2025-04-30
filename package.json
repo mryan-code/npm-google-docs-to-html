@@ -1,7 +1,8 @@
 {
-  "name": "google-docs-to-html",
-  "version": "1.0.0",
+  "name": "mryan-code-google-docs-to-html",
+  "version": "1.4.0",
   "description": "This package converts a Google Doc to HTML.",
+  "type": "module",
   "main": "index.js",
   "repository": {
     "type": "git",

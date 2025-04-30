@@ -1,4 +1,4 @@
-function googleDocToHTML(googleDocResponse) {
+async function googleDocToHTML(googleDocResponse) {
 	const googleDoc = [];
 	if ("data" in googleDocResponse) {
 		if ("body" in googleDocResponse.data) {
@@ -6,8 +6,6 @@ function googleDocToHTML(googleDocResponse) {
 				const data = googleDocResponse.data.body.content;
 				let list = false;
 				for await (const [index, element] of data.entries()) {
-					// const element: types.KeyValue = data[index];
-					// console.log("element" + index + ":", element);
 					const next = data[index + 1];
 
 					let parentTag = "span";
@@ -23,31 +21,33 @@ function googleDocToHTML(googleDocResponse) {
 								parentHTMLClass = ' class="' + parentHTMLClasses.trim() + '"';
 							}
 
-							switch (element.paragraph.paragraphStyle.namedStyleType) {
-								case "NORMAL_TEXT":
-									parentTag = "p";
-									if ("bullet" in element.paragraph) {
-										parentTag = "li";
-									}
-									break;
-								case "HEADING_1":
-									parentTag = "h1";
-									break;
-								case "HEADING_2":
-									parentTag = "h2";
-									break;
-								case "HEADING_3":
-									parentTag = "h3";
-									break;
-								case "HEADING_4":
-									parentTag = "h4";
-									break;
-								case "HEADING_5":
-									parentTag = "h5";
-									break;
-								case "HEADING_6":
-									parentTag = "h6";
-									break;
+							if ("namedStyleType" in element.paragraph.paragraphStyle) {
+								switch (element.paragraph.paragraphStyle.namedStyleType) {
+									case "NORMAL_TEXT":
+										parentTag = "p";
+										if ("bullet" in element.paragraph) {
+											parentTag = "li";
+										}
+										break;
+									case "HEADING_1":
+										parentTag = "h1";
+										break;
+									case "HEADING_2":
+										parentTag = "h2";
+										break;
+									case "HEADING_3":
+										parentTag = "h3";
+										break;
+									case "HEADING_4":
+										parentTag = "h4";
+										break;
+									case "HEADING_5":
+										parentTag = "h5";
+										break;
+									case "HEADING_6":
+										parentTag = "h6";
+										break;
+								}
 							}
 						}
 					}
@@ -154,4 +154,4 @@ function googleDocToHTML(googleDocResponse) {
 	return googleDoc;
 }
 
-export default googleDocToHTML;
+export { googleDocToHTML };
