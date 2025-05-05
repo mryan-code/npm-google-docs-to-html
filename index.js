@@ -4,7 +4,7 @@ async function googleDocToHTML(googleDocResponse) {
 		if ("body" in googleDocResponse.data) {
 			if ("content" in googleDocResponse.data.body) {
 				const data = googleDocResponse.data.body.content;
-				let list = false;
+				let listTag = '';
 				for await (const [index, element] of data.entries()) {
 					const next = data[index + 1];
 
@@ -64,10 +64,10 @@ async function googleDocToHTML(googleDocResponse) {
 							}
 
 							if (childContent) {
-								if (list == false) {
+								if (!listTag) {
 									if (element.paragraph.bullet) {
-										googleDoc.push("<ul>");
-										list = true;
+										listTag = "ul";
+										googleDoc.push("<" +listTag + ">");
 									}
 								}
 								googleDoc.push("<" + parentTag + parentHTMLClass + ">");
@@ -129,7 +129,7 @@ async function googleDocToHTML(googleDocResponse) {
 								googleDoc.push("</" + parentTag + ">");
 							}
 
-							if (list == true) {
+							if (listTag) {
 								let endList = false;
 								if (next) {
 									if (next.paragraph.bullet) {
@@ -141,8 +141,8 @@ async function googleDocToHTML(googleDocResponse) {
 									endList = true;
 								}
 								if (endList == true) {
-									googleDoc.push("</ul>");
-									list = false;
+									googleDoc.push("</" + listTag + ">");
+									listTag = "";
 								}
 							}
 						}
